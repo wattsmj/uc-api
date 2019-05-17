@@ -20,16 +20,20 @@ Contact: Please raise an issue on www.github.com/wattsmj/uc-api
 Description: Package installation file
 '''
 
-from setuptools import setup, find_packages
+import os
+from setuptools import find_packages, setup
+
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+    README = readme.read()
 
 setup(
     name='uc-api',
     version="0.1.0",
-    author="wattsmj",
+    author='wattsmj',
+    license='GPL-3.0',
+    url="https://github.com/wattsmj/uc-api",
     description='Cisco UC library that finds a user\'s resources',
-    keywords="Call Manager UC Unified Communications",
+    long_description=README,
     packages=find_packages(),
-    license="LICENSE.txt",
-    long_description='README.md',
     install_requires=['requests']
 )
